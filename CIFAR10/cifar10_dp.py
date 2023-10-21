@@ -23,7 +23,7 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 # Basic training parameters
 num_epochs = 80
 batch_size = 256
-lr = 5e-3
+lr = 1e-4
 out_dim = 10
 
 # LIF neuron parameters
@@ -67,16 +67,13 @@ model = ConvNet(in_channels=3).to(device)
 
 def forward_pass(model, data):
     spk_rec = torch.zeros((data.size(0), data.size(1), out_dim)).to(device)
-    # utils.reset(model)  # resets hidden states for all LIF neurons in model
-    mem1, mem2, mem3, mem4, mem5 = model.lif1.init_leaky(),  model.lif2.init_leaky(),  model.lif3.init_leaky(), model.lif4.init_leaky(),model.lif5.init_leaky()
+    utils.reset(model)  # resets hidden states for all LIF neurons in model
     for step in range(data.size(0)):  # data.size(0) = number of time steps
-        spk_out, mem1, mem2, mem3, mem4, mem5 = model(data[step], mem1, mem2, mem3, mem4, mem5)
+        spk_out, mem1 = model(data[step])
         spk_rec[step] = spk_out
-    # print(spk_rec.mean())
-    return spk_rec.sum(dim=0)
+    return spk_rec.sum(dim=0), (spk_rec != 0).float().mean()
 
-optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-# optimizer = torch.optim.SGD(model.parameters(), lr=lr)
+optimizer = torch.optim.Adam(model.parameters(), lr=lr, betas=(0.9, 0.999))
 loss_fn =   torch.nn.CrossEntropyLoss()# SF.ce_count_loss()#SF.mse_count_loss(correct_rate=0.8, incorrect_rate=0.2)
 
 loss_hist = []
@@ -84,7 +81,7 @@ acc_hist = []
 
 # Parameters for privacy engine
 target_epsilon = 8
-target_delta = 1e-5
+target_delta = 1e-2
 max_grad_norm = 100 #1.0
 
 sample_rate = 1 / len(trainloader)
@@ -100,9 +97,11 @@ noise_multiplier = get_noise_multiplier(
     target_delta=target_delta,
     sample_rate=sample_rate,
     epochs=num_epochs,
-    alphas=range(2,128),
+    # alphas=range(2,128),
     accountant=accountant.mechanism()
 )
+
+print(noise_multiplier)
 
 optimizer = DPOptimizer(
     optimizer=optimizer,
@@ -126,13 +125,16 @@ for epoch in range(num_epochs):
     model.train(True)
     
     correct, total = 0,0
+    r = 0
     with tqdm(trainloader, unit="batch") as tepoch:
         for data, target in tepoch:
             
-            data = data.to(device).repeat(rep,1,1,1,1)#.permute(1, 0, 2, 3, 4)
+            data = data.to(device)
+            data = data.repeat(rep,1,1,1,1)#.permute(1, 0, 2, 3, 4)
             target = target.to(device)
             model.zero_grad()
-            spk_rec = forward_pass(model, data)
+            spk_rec, rate = forward_pass(model, data)
+            r += rate
             loss_val = loss_fn(spk_rec.float(), target)
             loss_val.backward()
             # for n, param in model.named_parameters():
@@ -150,6 +152,7 @@ for epoch in range(num_epochs):
     print(f"Epoch {epoch} \nTrain Loss: {loss_val.item():.2f}")
     print(f"Privacy Bound: {accountant.get_epsilon(target_delta)}")
     print(f'Training Accuracy: {correct/total}')
+    print(f'Average firing rate: {r/len(trainloader)}')
 
     # ==============
     # ==== Test ====
@@ -159,8 +162,11 @@ for epoch in range(num_epochs):
     model.train(False)
     with torch.no_grad():
         for data, target in testloader:
-            data, target = data.to(device).repeat(rep,1,1,1,1), target.to(device)
-            spk_rec = forward_pass(model, data)
+            data = data.to(device)
+            # data = data / data.max()
+            data = data.repeat(rep,1,1,1,1)#.permute(1, 0, 2, 3, 4)
+            target = target.to(device)
+            spk_rec,_ = forward_pass(model, data)
             loss = loss_fn(spk_rec.float(), target)
             spk_rec = torch.argmax(spk_rec, axis=1)
             test_loss += loss.item() * data.size(0)
