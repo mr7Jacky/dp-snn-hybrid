@@ -1,0 +1,214 @@
+cuda
+Files already downloaded and verified
+Files already downloaded and verified
+0.49102783203125
+Epoch 0 
+Train Loss: 1.90
+Privacy Bound: 2.129811912435495
+Training Accuracy: 0.15201999247074127
+Average firing rate: 0.0
+Testing Loss:9.692495246476765
+Correct Predictions: 0.2694000005722046
+Epoch 1 
+Train Loss: 1.65
+Privacy Bound: 2.5559803990811982
+Training Accuracy: 0.3202599883079529
+Average firing rate: 0.0
+Testing Loss:8.35638329952578
+Correct Predictions: 0.37299999594688416
+Epoch 2 
+Train Loss: 1.46
+Privacy Bound: 2.8986359499992407
+Training Accuracy: 0.4116799831390381
+Average firing rate: 0.0
+Testing Loss:7.637850347953506
+Correct Predictions: 0.4486999809741974
+Epoch 3 
+Train Loss: 1.61
+Privacy Bound: 3.2016136228634244
+Training Accuracy: 0.4634999930858612
+Average firing rate: 0.0
+Testing Loss:7.382891457292098
+Correct Predictions: 0.4804999828338623
+Epoch 4 
+Train Loss: 1.59
+Privacy Bound: 3.4707480379349183
+Training Accuracy: 0.4944799840450287
+Average firing rate: 0.0
+Testing Loss:7.039158864866329
+Correct Predictions: 0.5119999647140503
+Epoch 5 
+Train Loss: 1.09
+Privacy Bound: 3.7251462258439667
+Training Accuracy: 0.5191199779510498
+Average firing rate: 0.0
+Testing Loss:7.033521042594427
+Correct Predictions: 0.5184000134468079
+Epoch 6 
+Train Loss: 1.58
+Privacy Bound: 3.957471526683975
+Training Accuracy: 0.5360199809074402
+Average firing rate: 0.0
+Testing Loss:6.817135561870623
+Correct Predictions: 0.5383999943733215
+Epoch 7 
+Train Loss: 1.61
+Privacy Bound: 4.189796827523983
+Training Accuracy: 0.5511800050735474
+Average firing rate: 0.0
+Testing Loss:6.7065047915977765
+Correct Predictions: 0.5453999638557434
+Epoch 8 
+Train Loss: 1.32
+Privacy Bound: 4.4018997577846175
+Training Accuracy: 0.5591399669647217
+Average firing rate: 0.0
+Testing Loss:6.702584194231637
+Correct Predictions: 0.5611000061035156
+Epoch 9 
+Train Loss: 1.20
+Privacy Bound: 4.604948817784812
+Training Accuracy: 0.5662999749183655
+Average firing rate: 0.0
+Testing Loss:6.564451078825359
+Correct Predictions: 0.5659999847412109
+Epoch 10 
+Train Loss: 1.17
+Privacy Bound: 4.807997877785007
+Training Accuracy: 0.5709599852561951
+Average firing rate: 0.0
+Testing Loss:6.5670906592019
+Correct Predictions: 0.5670999884605408
+Epoch 11 
+Train Loss: 1.19
+Privacy Bound: 5.011046937785201
+Training Accuracy: 0.5750200152397156
+Average firing rate: 0.0
+Testing Loss:6.560365293599382
+Correct Predictions: 0.5773999691009521
+Epoch 12 
+Train Loss: 1.15
+Privacy Bound: 5.194575098576701
+Training Accuracy: 0.5828199982643127
+Average firing rate: 0.0
+Testing Loss:6.469374366953403
+Correct Predictions: 0.578000009059906
+Epoch 13 
+Train Loss: 1.39
+Privacy Bound: 5.373742206869933
+Training Accuracy: 0.5864799618721008
+Average firing rate: 0.0
+Testing Loss:6.314882613435576
+Correct Predictions: 0.5879999995231628
+Epoch 14 
+Train Loss: 1.41
+Privacy Bound: 5.5529093151631645
+Training Accuracy: 0.5902400016784668
+Average firing rate: 0.0
+Testing Loss:6.326309359526332
+Correct Predictions: 0.5884999632835388
+Epoch 15 
+Train Loss: 1.06
+Privacy Bound: 5.732076423456396
+Training Accuracy: 0.5932799577713013
+Average firing rate: 0.0
+Testing Loss:6.286732856231399
+Correct Predictions: 0.5924999713897705
+Epoch 16 
+Train Loss: 1.30
+Privacy Bound: 5.911243531749628
+Training Accuracy: 0.5974799990653992
+Average firing rate: 0.0
+Testing Loss:6.286367902272864
+Correct Predictions: 0.5954999923706055
+Epoch 17 
+Train Loss: 1.36
+Privacy Bound: 6.0852386719121
+Training Accuracy: 0.5989199876785278
+Average firing rate: 0.0
+Testing Loss:6.27664803704129
+Correct Predictions: 0.5952000021934509
+Epoch 18 
+Train Loss: 1.24
+Privacy Bound: 6.244481052303427
+Training Accuracy: 0.6024599671363831
+Average firing rate: 0.0
+Testing Loss:6.228688291356534
+Correct Predictions: 0.6022999882698059
+Epoch 19 
+Train Loss: 1.35
+Privacy Bound: 6.403723432694755
+Training Accuracy: 0.6067999601364136
+Average firing rate: 0.0
+Testing Loss:6.20807084856154
+Correct Predictions: 0.5965999960899353
+Epoch 20 
+Train Loss: 1.04
+Privacy Bound: 6.562965813086082
+Training Accuracy: 0.6110199689865112
+Average firing rate: 0.0
+Testing Loss:6.2124940224840675
+Correct Predictions: 0.601099967956543
+Epoch 21 
+Train Loss: 1.10
+Privacy Bound: 6.72220819347741
+Training Accuracy: 0.6122199892997742
+Average firing rate: 0.0
+Testing Loss:6.2751264247713205
+Correct Predictions: 0.5936999917030334
+Epoch 22 
+Train Loss: 1.22
+Privacy Bound: 6.881450573868738
+Training Accuracy: 0.6121799945831299
+Average firing rate: 0.0
+Testing Loss:6.15374585872964
+Correct Predictions: 0.6082000136375427
+Epoch 23 
+Train Loss: 1.18
+Privacy Bound: 7.040692954260066
+Training Accuracy: 0.6137399673461914
+Average firing rate: 0.0
+Testing Loss:6.202419683148589
+Correct Predictions: 0.6051999926567078
+Epoch 24 
+Train Loss: 1.27
+Privacy Bound: 7.199935334651394
+Training Accuracy: 0.6132799983024597
+Average firing rate: 0.0
+Testing Loss:6.159933692292322
+Correct Predictions: 0.6039999723434448
+Epoch 25 
+Train Loss: 1.58
+Privacy Bound: 7.355930234629997
+Training Accuracy: 0.6199600100517273
+Average firing rate: 0.0
+Testing Loss:6.11019865998739
+Correct Predictions: 0.6105999946594238
+Epoch 26 
+Train Loss: 1.08
+Privacy Bound: 7.498217152279504
+Training Accuracy: 0.6165800094604492
+Average firing rate: 0.0
+Testing Loss:6.100994789902168
+Correct Predictions: 0.614300012588501
+Epoch 27 
+Train Loss: 1.01
+Privacy Bound: 7.6405040699290145
+Training Accuracy: 0.6219599843025208
+Average firing rate: 0.0
+Testing Loss:6.227787427509887
+Correct Predictions: 0.6125999689102173
+Epoch 28 
+Train Loss: 1.35
+Privacy Bound: 7.7827909875785215
+Training Accuracy: 0.6226400136947632
+Average firing rate: 0.0
+Testing Loss:6.124681238132187
+Correct Predictions: 0.6121999621391296
+Epoch 29 
+Train Loss: 1.25
+Privacy Bound: 7.92507790522803
+Training Accuracy: 0.6223399639129639
+Average firing rate: 0.0
+Testing Loss:6.064169652099851
+Correct Predictions: 0.6134999990463257
