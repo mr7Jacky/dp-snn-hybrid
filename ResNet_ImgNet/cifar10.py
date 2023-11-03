@@ -7,6 +7,7 @@ import torch
 import torchvision
 import torchvision.transforms as transforms
 
+from spikingjelly.activation_based import ann2snn
 from snntorch import utils
 seed = 1024
 torch.manual_seed(seed)
@@ -15,8 +16,8 @@ np.random.seed(seed)
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 # Basic training parameters
-num_epochs = 30
-batch_size = 1024
+num_epochs = 80
+batch_size = 512
 lr = 5e-4
 out_dim = 10
 
@@ -30,9 +31,7 @@ print(device)
 # ==== Data Prep ====
 # ===================
 transform = transforms.Compose(
-    [ transforms.Resize(256),
-    transforms.CenterCrop(224),
-    transforms.ToTensor(),
+    [transforms.ToTensor(),
      transforms.Normalize(mean=[0.507, 0.487, 0.441], std=[0.267, 0.256, 0.276])])
 
 trainset = torchvision.datasets.CIFAR10(root='../data', train=True,
@@ -51,9 +50,9 @@ input_shape=(3, 32, 32)
 # ===================
 # ==== Model ========
 # ===================
-from alexnet_pretrain import AlexNet
+from resnet_pretrain import ResNet
 
-model = AlexNet()
+model = ResNet()
 model.to(device)
 
 def forward_pass(model, data):
@@ -62,7 +61,7 @@ def forward_pass(model, data):
     for step in range(data.size(0)):  # data.size(0) = number of time steps
         spk_out = model(data[step])
         spk_rec[step] = spk_out
-    return spk_rec.sum(dim=0), (spk_rec!=0).float().mean()
+    return spk_rec.sum(dim=0)
 
 optimizer = torch.optim.Adam(model.parameters(), lr=lr, betas=(0.9,0.99))
 # optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
@@ -75,7 +74,7 @@ acc_hist = []
 # Parameters for privacy engine
 target_epsilon = 8
 target_delta = 1e-2
-max_grad_norm = 7 #10 #1.0
+max_grad_norm = 5 #10 #1.0
 
 sample_rate = 1 / (len(trainloader))
 expected_batch_size = int(len(trainloader.dataset) * sample_rate)
@@ -90,10 +89,12 @@ noise_multiplier = get_noise_multiplier(
     target_delta=target_delta,
     sample_rate=sample_rate,
     epochs=num_epochs,
-    alphas=range(2,128),
+    # alphas=range(2,128),
     accountant=accountant.mechanism()
 )
+
 print(noise_multiplier)
+
 optimizer = DPOptimizer(
     optimizer=optimizer,
     noise_multiplier=noise_multiplier,
@@ -118,16 +119,14 @@ for epoch in range(num_epochs):
     
     correct, total = 0,0
     r = 0
-    with BatchMemoryManager(data_loader=trainloader, max_physical_batch_size=16, optimizer=optimizer) as data_loader:
+    with BatchMemoryManager(data_loader=trainloader, max_physical_batch_size=256, optimizer=optimizer) as data_loader:
             for data, target in tqdm(data_loader, unit="batch"):
-                
                 data = data.to(device).repeat(rep, 1, 1, 1, 1)
                 target = target.to(device)
                 model.zero_grad()
                 optimizer.zero_grad()
                 # for _ in range(data_rep):     
-                spk_rec, rate = forward_pass(model, data)
-                r += rate
+                spk_rec = forward_pass(model, data)
                 loss_val = loss_fn(spk_rec.float(), target) 
                 loss_val.backward()
                 optimizer.step() 
@@ -136,7 +135,7 @@ for epoch in range(num_epochs):
                 correct += torch.eq(spk_rec, target).sum()
                 total += target.size(0)
                 # Store loss history for future plotting
-                # loss_hist.append(loss_val.item())
+                loss_hist.append(loss_val.item())
     print(f"Epoch {epoch} \nTrain Loss: {loss_val.item():.2f}")
     print(f"Privacy Bound: {accountant.get_epsilon(target_delta)}")
     print(f'Training Accuracy: {correct/total}')
@@ -152,7 +151,7 @@ for epoch in range(num_epochs):
         for data, target in testloader:
             data = data.to(device).repeat(rep, 1, 1, 1, 1)
             target = target.to(device)
-            spk_rec, _ = forward_pass(model, data)
+            spk_rec = forward_pass(model, data)
             loss = loss_fn(spk_rec.float(), target)
             spk_rec = torch.argmax(spk_rec, axis=1)
             test_loss += loss.item() * data.size(0)

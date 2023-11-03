@@ -16,7 +16,7 @@ class AlexNet(nn.Module):
         
         pretrain = alexnet(weights=AlexNet_Weights.DEFAULT)
         # SNN Param
-        beta = 0.5
+        beta = 0.7
         thr = 0.5
         alpha = 0.9
         

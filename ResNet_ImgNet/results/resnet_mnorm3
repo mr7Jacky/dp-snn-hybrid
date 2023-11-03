@@ -1,0 +1,214 @@
+cuda
+Files already downloaded and verified
+Files already downloaded and verified
+0.59661865234375
+Epoch 0 
+Train Loss: 2.30
+Privacy Bound: 1.8193001102488164
+Training Accuracy: 0.09975999593734741
+Average firing rate: 0.0
+Testing Loss:11.512924373149872
+Correct Predictions: 0.09999999403953552
+Epoch 1 
+Train Loss: 1.91
+Privacy Bound: 2.257146498693447
+Training Accuracy: 0.22467999160289764
+Average firing rate: 0.0
+Testing Loss:9.08000499010086
+Correct Predictions: 0.31839999556541443
+Epoch 2 
+Train Loss: 1.60
+Privacy Bound: 2.612644438369046
+Training Accuracy: 0.3741599917411804
+Average firing rate: 0.0
+Testing Loss:8.014506310224533
+Correct Predictions: 0.42649999260902405
+Epoch 3 
+Train Loss: 1.54
+Privacy Bound: 2.927825911185555
+Training Accuracy: 0.4556199908256531
+Average firing rate: 0.0
+Testing Loss:7.415487736463547
+Correct Predictions: 0.47829997539520264
+Epoch 4 
+Train Loss: 1.65
+Privacy Bound: 3.2109001646522666
+Training Accuracy: 0.5042999982833862
+Average firing rate: 0.0
+Testing Loss:7.133434563875198
+Correct Predictions: 0.5192999839782715
+Epoch 5 
+Train Loss: 1.24
+Privacy Bound: 3.4762140254975566
+Training Accuracy: 0.5380200147628784
+Average firing rate: 0.0
+Testing Loss:6.923775941133499
+Correct Predictions: 0.5467000007629395
+Epoch 6 
+Train Loss: 1.43
+Privacy Bound: 3.7308451388065986
+Training Accuracy: 0.5622000098228455
+Average firing rate: 0.0
+Testing Loss:6.829224735498428
+Correct Predictions: 0.5602999925613403
+Epoch 7 
+Train Loss: 1.49
+Privacy Bound: 3.9673979839880213
+Training Accuracy: 0.5819199681282043
+Average firing rate: 0.0
+Testing Loss:6.783221036195755
+Correct Predictions: 0.5764999985694885
+Epoch 8 
+Train Loss: 1.34
+Privacy Bound: 4.197688236664343
+Training Accuracy: 0.594980001449585
+Average firing rate: 0.0
+Testing Loss:6.7950133085250854
+Correct Predictions: 0.5828999876976013
+Epoch 9 
+Train Loss: 0.97
+Privacy Bound: 4.422664237570558
+Training Accuracy: 0.6073600053787231
+Average firing rate: 0.0
+Testing Loss:6.324896544218063
+Correct Predictions: 0.6103999614715576
+Epoch 10 
+Train Loss: 1.09
+Privacy Bound: 4.631811219247222
+Training Accuracy: 0.6160799860954285
+Average firing rate: 0.0
+Testing Loss:6.395799070596695
+Correct Predictions: 0.6110999584197998
+Epoch 11 
+Train Loss: 1.09
+Privacy Bound: 4.840958200923886
+Training Accuracy: 0.6261000037193298
+Average firing rate: 0.0
+Testing Loss:6.193494021892548
+Correct Predictions: 0.6205999851226807
+Epoch 12 
+Train Loss: 1.12
+Privacy Bound: 5.05010518260055
+Training Accuracy: 0.6370199918746948
+Average firing rate: 0.0
+Testing Loss:6.193550914525986
+Correct Predictions: 0.6247000098228455
+Epoch 13 
+Train Loss: 1.21
+Privacy Bound: 5.241964670545084
+Training Accuracy: 0.6431599855422974
+Average firing rate: 0.0
+Testing Loss:5.971168279647827
+Correct Predictions: 0.6389999985694885
+Epoch 14 
+Train Loss: 1.30
+Privacy Bound: 5.432500845742385
+Training Accuracy: 0.6473000049591064
+Average firing rate: 0.0
+Testing Loss:6.24073326587677
+Correct Predictions: 0.6233999729156494
+Epoch 15 
+Train Loss: 1.01
+Privacy Bound: 5.6230370209396865
+Training Accuracy: 0.6547999978065491
+Average firing rate: 0.0
+Testing Loss:5.893205851316452
+Correct Predictions: 0.6495000123977661
+Epoch 16 
+Train Loss: 1.12
+Privacy Bound: 5.8135731961369865
+Training Accuracy: 0.6625999808311462
+Average firing rate: 0.0
+Testing Loss:5.852502644062042
+Correct Predictions: 0.6523000001907349
+Epoch 17 
+Train Loss: 1.30
+Privacy Bound: 5.996705876456541
+Training Accuracy: 0.6681999564170837
+Average firing rate: 0.0
+Testing Loss:5.8157579600811005
+Correct Predictions: 0.6575999855995178
+Epoch 18 
+Train Loss: 1.19
+Privacy Bound: 6.170667164550532
+Training Accuracy: 0.6700400114059448
+Average firing rate: 0.0
+Testing Loss:5.734742730855942
+Correct Predictions: 0.6597999930381775
+Epoch 19 
+Train Loss: 1.15
+Privacy Bound: 6.344628452644524
+Training Accuracy: 0.6756799817085266
+Average firing rate: 0.0
+Testing Loss:5.722045123577118
+Correct Predictions: 0.6584999561309814
+Epoch 20 
+Train Loss: 0.90
+Privacy Bound: 6.518589740738516
+Training Accuracy: 0.6784999966621399
+Average firing rate: 0.0
+Testing Loss:5.663120746612549
+Correct Predictions: 0.66839998960495
+Epoch 21 
+Train Loss: 1.05
+Privacy Bound: 6.692551028832508
+Training Accuracy: 0.6805199980735779
+Average firing rate: 0.0
+Testing Loss:5.682356655597687
+Correct Predictions: 0.6660000085830688
+Epoch 22 
+Train Loss: 1.13
+Privacy Bound: 6.8665123169265
+Training Accuracy: 0.6829599738121033
+Average firing rate: 0.0
+Testing Loss:5.574384361505508
+Correct Predictions: 0.6680999994277954
+Epoch 23 
+Train Loss: 1.28
+Privacy Bound: 7.035983753123208
+Training Accuracy: 0.6863600015640259
+Average firing rate: 0.0
+Testing Loss:5.5051268339157104
+Correct Predictions: 0.6751999855041504
+Epoch 24 
+Train Loss: 1.20
+Privacy Bound: 7.1950299168005
+Training Accuracy: 0.6881999969482422
+Average firing rate: 0.0
+Testing Loss:5.657779335975647
+Correct Predictions: 0.6703999638557434
+Epoch 25 
+Train Loss: 1.18
+Privacy Bound: 7.3540760804777925
+Training Accuracy: 0.6893199682235718
+Average firing rate: 0.0
+Testing Loss:5.562976241111755
+Correct Predictions: 0.6725999712944031
+Epoch 26 
+Train Loss: 0.91
+Privacy Bound: 7.513122244155085
+Training Accuracy: 0.6919599771499634
+Average firing rate: 0.0
+Testing Loss:5.531696051359177
+Correct Predictions: 0.6771000027656555
+Epoch 27 
+Train Loss: 0.96
+Privacy Bound: 7.672168407832377
+Training Accuracy: 0.6911999583244324
+Average firing rate: 0.0
+Testing Loss:5.554325371980667
+Correct Predictions: 0.6758999824523926
+Epoch 28 
+Train Loss: 0.98
+Privacy Bound: 7.831214571509669
+Training Accuracy: 0.6946399807929993
+Average firing rate: 0.0
+Testing Loss:5.487146645784378
+Correct Predictions: 0.6784999966621399
+Epoch 29 
+Train Loss: 1.20
+Privacy Bound: 7.9902607351869595
+Training Accuracy: 0.6971399784088135
+Average firing rate: 0.0
+Testing Loss:5.526512444019318
+Correct Predictions: 0.6784999966621399
