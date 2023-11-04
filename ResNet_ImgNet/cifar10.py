@@ -7,7 +7,6 @@ import torch
 import torchvision
 import torchvision.transforms as transforms
 
-from spikingjelly.activation_based import ann2snn
 from snntorch import utils
 seed = 1024
 torch.manual_seed(seed)
@@ -22,7 +21,6 @@ lr = 5e-4
 out_dim = 10
 
 # LIF neuron parameters
-
 rep = 5
 print(device)
 # neuron and simulation parameters
@@ -31,8 +29,14 @@ print(device)
 # ==== Data Prep ====
 # ===================
 transform = transforms.Compose(
-    [transforms.ToTensor(),
+    [ transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
      transforms.Normalize(mean=[0.507, 0.487, 0.441], std=[0.267, 0.256, 0.276])])
+
+# transform = transforms.Compose(
+#     [transforms.ToTensor(),
+#      transforms.Normalize(mean=[0.507, 0.487, 0.441], std=[0.267, 0.256, 0.276])])
 
 trainset = torchvision.datasets.CIFAR10(root='../data', train=True,
                                         download=True, transform=transform)
